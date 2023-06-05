@@ -1,0 +1,183 @@
+GET https://api.github.com/repos/longht021189/bot/actions/workflows
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+
+HTTP/1.1 200  - OK
+server: GitHub.com
+date: Mon, 05 Jun 2023 03:16:55 GMT
+content-type: application/json; charset=utf-8
+cache-control: public, max-age=60, s-maxage=60
+vary: Accept, Accept-Encoding, Accept, X-Requested-With
+etag: W/"4160f54e0fb854b4356cf2b360be10a80ebe3ade8fdc386a0cb989f35f3c5aaa"
+x-github-media-type: github.v3; format=json
+x-github-api-version-selected: 2022-11-28
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'
+content-encoding: gzip
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 56
+x-ratelimit-reset: 1685938191
+x-ratelimit-resource: core
+x-ratelimit-used: 4
+accept-ranges: bytes
+content-length: 281
+x-github-request-id: D43E:3EB0:13AE6C4:14D232C:647D53A7
+connection: close
+###
+GET https://api.github.com/repos/longht021189/bot/actions/workflows/59229996
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+
+HTTP/1.1 200  - OK
+server: GitHub.com
+date: Mon, 05 Jun 2023 03:17:56 GMT
+content-type: application/json; charset=utf-8
+cache-control: public, max-age=60, s-maxage=60
+vary: Accept, Accept-Encoding, Accept, X-Requested-With
+etag: W/"54d7afa64cbb93ad3e104970658853555e78518716c4f16a08f895d2c0568326"
+x-github-media-type: github.v3; format=json
+x-github-api-version-selected: 2022-11-28
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'
+content-encoding: gzip
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
+x-ratelimit-reset: 1685938190
+x-ratelimit-resource: core
+x-ratelimit-used: 5
+accept-ranges: bytes
+content-length: 261
+x-github-request-id: D447:5FC9:15AAA3C:16D90BA:647D53E4
+connection: close
+###
+PUT https://api.github.com/repos/longht021189/bot/actions/workflows/59229996/disable
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+
+HTTP/1.1 403  - Forbidden
+server: GitHub.com
+date: Mon, 05 Jun 2023 03:18:35 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+x-github-media-type: github.v3; format=json
+x-github-api-version-selected: 2022-11-28
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+x-ratelimit-reset: 1685938715
+x-ratelimit-used: 1
+x-ratelimit-resource: core
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'
+vary: Accept-Encoding, Accept, X-Requested-With
+content-encoding: gzip
+x-github-request-id: D450:1DF7:24E2D25:26C2DD4:647D540A
+connection: close
+###
+PUT https://api.github.com/repos/longht021189/bot/actions/workflows/59229996/enable
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+
+HTTP/1.1 403  - Forbidden
+server: GitHub.com
+date: Mon, 05 Jun 2023 03:20:37 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+x-github-media-type: github.v3; format=json
+x-github-api-version-selected: 2022-11-28
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+x-ratelimit-reset: 1685938715
+x-ratelimit-used: 3
+x-ratelimit-resource: core
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'
+vary: Accept-Encoding, Accept, X-Requested-With
+content-encoding: gzip
+x-github-request-id: D464:239B:704E6A:76EDB4:647D5485
+connection: close
+###
+POST https://api.github.com/repos/longht021189/bot/actions/workflows/59229996/dispatches
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+
+{"ref":"topic-branch","inputs":{"name":"Mona the Octocat","home":"San Francisco, CA"}}
+
+HTTP/1.1 403  - Forbidden
+server: GitHub.com
+date: Mon, 05 Jun 2023 03:20:09 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+x-github-media-type: github.v3; format=json
+x-github-api-version-selected: 2022-11-28
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+x-ratelimit-reset: 1685938715
+x-ratelimit-used: 2
+x-ratelimit-resource: core
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'
+vary: Accept-Encoding, Accept, X-Requested-With
+content-encoding: gzip
+x-github-request-id: D45E:7985:1EAF0D7:20513B6:647D5469
+connection: close
+###
+GET https://api.github.com/repos/longht021189/bot/actions/workflows/59229996/timing
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+
+HTTP/1.1 200  - OK
+server: GitHub.com
+date: Mon, 05 Jun 2023 03:21:12 GMT
+content-type: application/json; charset=utf-8
+content-length: 15
+cache-control: public, max-age=60, s-maxage=60
+vary: Accept, Accept-Encoding, Accept, X-Requested-With
+etag: "84bc8bf82948ceff7cefe12db949da557091284ba996d17e627456324356f587"
+x-github-media-type: github.v3; format=json
+x-github-api-version-selected: 2022-11-28
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 54
+x-ratelimit-reset: 1685938190
+x-ratelimit-resource: core
+x-ratelimit-used: 6
+accept-ranges: bytes
+x-github-request-id: D46B:5FC9:15B1B5B:16E05D9:647D54A8
+connection: close
