@@ -1,0 +1,59 @@
+name: Build and Package iOS App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+        echo "$SSH_PUBLIC_KEY" > ~/.ssh/id_ed25519.pub
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        repository: git@github.com:baotrunguit/markethome-mobile-app.git
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.10.6'
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Update CocoaPods repositories
+      run: |
+        cd ios
+        gem install cocoapods
+        gem install bundler
+        bundle install
+        bundle exec fastlane prebuild
+
+    - name: Build iOS app
+      run: flutter build ipa
+
+    # - name: Build iOS app
+    #   run: flutter build ios --release
+
+    # - name: Archive app
+    #   run: flutter build ios --release --no-codesign
+
+    # - name: Package IPA
+    #   uses: codecov/codecov-action@v2.1.0
+    #   with:
+    #     file: build/ios/archive/Runner.xcarchive/Products/Applications/Runner.app/Runner
+
+    - name: Upload iOS Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ios-app
+        path: build/ios
