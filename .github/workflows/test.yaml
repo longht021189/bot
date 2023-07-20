@@ -27,6 +27,13 @@ jobs:
     - name: Install dependencies
       run: flutter pub get
 
+    - name: Install certificate and provisioning profile
+      run: |
+        echo "$CERTIFICATE_P12_CONTENT" | base64 -d > ~/homemarket.p12
+        echo "$PROVISIONING_PROFILE_CONTENT" | base64 -d > ~/homemarket.mobileprovision
+        security create-keychain -p mysecretpassword build.keychain
+        security import ~/homemarket.p12 -k ~/Library/Keychains/build.keychain -P "$CERTIFICATE_P12_PASS" -T /usr/bin/codesign
+
     - name: Update CocoaPods repositories
       run: |
         cd ios
@@ -36,7 +43,7 @@ jobs:
         bundle exec fastlane prebuild
 
     - name: Build iOS app
-      run: flutter build ipa --no-codesign
+      run: flutter build ipa
 
     # - name: Build iOS app
     #   run: flutter build ios --release
