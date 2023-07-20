@@ -14,7 +14,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        repository: git@github.com:baotrunguit/markethome-mobile-app.git
+        repository: baotrunguit/markethome-mobile-app
         ref: dev
         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
         ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
