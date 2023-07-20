@@ -11,16 +11,13 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-        echo "$SSH_PUBLIC_KEY" > ~/.ssh/id_ed25519.pub
-
     - name: Checkout code
       uses: actions/checkout@v2
       with:
         repository: git@github.com:baotrunguit/markethome-mobile-app.git
+        ref: dev
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
