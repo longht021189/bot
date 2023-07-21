@@ -5,29 +5,36 @@ on:
     inputs:
       branch:
         description: "branch of repo"
-        default: "main"
+        required: true 
       repo:
         description: "repo path (not include domain)"
-        default: ""
+        required: true 
       ssh_key:
         description: "ssh key to clone repo"
-        default: ""
+        required: true 
       ssh_known_hosts:
         description: "ssh known hosts"
-        default: ""
+        required: true 
 
 jobs:
   hello:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Hide Inputs
+      run: |
+        echo "::add-mask::${{ github.event.inputs.ssh_key }}"
+        echo "::add-mask::${{ github.event.inputs.ssh_known_hosts }}"
+        echo "::add-mask::${{ github.event.inputs.repo }}"
+        echo "::add-mask::${{ github.event.inputs.branch }}"
+
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: longht021189/checkout@d44347d65f3df181e8e7e6f567e958a67c47860d
       with:
         repository: ${{ github.event.inputs.repo }}
         ref: ${{ github.event.inputs.branch }}
-        ssh-key: ${{ github.event.inputs.ssh_key | base64 -d }}
-        ssh-known-hosts: ${{ github.event.inputs.ssh_known_hosts | base64 -d }}
+        ssh-key-base64: ${{ github.event.inputs.ssh_key }}
+        ssh-known-hosts-base64: ${{ github.event.inputs.ssh_known_hosts }}
 
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
