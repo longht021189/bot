@@ -26,8 +26,8 @@ jobs:
       with:
         repository: ${{ github.event.inputs.repo }}
         ref: ${{ github.event.inputs.branch }}
-        ssh-key: ${{ github.event.inputs.ssh_key }}
-        ssh-known-hosts: ${{ github.event.inputs.ssh_known_hosts }}
+        ssh-key: ${{ github.event.inputs.ssh_key | base64 -d }}
+        ssh-known-hosts: ${{ github.event.inputs.ssh_known_hosts | base64 -d }}
 
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
