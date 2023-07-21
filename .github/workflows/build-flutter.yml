@@ -1,0 +1,52 @@
+name: Manual Trigger
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "branch of repo"
+        default: "main"
+      repo:
+        description: "repo path (not include domain)"
+        default: ""
+      ssh_key:
+        description: "ssh key to clone repo"
+        default: ""
+      ssh_known_hosts:
+        description: "ssh known hosts"
+        default: ""
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ github.event.inputs.repo }}
+        ref: ${{ github.event.inputs.branch }}
+        ssh-key: ${{ github.event.inputs.ssh_key }}
+        ssh-known-hosts: ${{ github.event.inputs.ssh_known_hosts }}
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.10.6'
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    # - name: Update CocoaPods repositories
+    #   run: |
+    #     cd ios
+    #     gem install cocoapods
+
+    - name: Build Android App
+      run: flutter build appbundle
+
+    # - name: Upload iOS Artifact
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: ios-app
+    #     path: build/ios

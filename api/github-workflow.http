@@ -1,14 +1,16 @@
+# List Workflows
+
 GET https://api.github.com/repos/longht021189/bot/actions/workflows
 Accept: application/vnd.github+json
 X-GitHub-Api-Version: 2022-11-28
 
 HTTP/1.1 200  - OK
 server: GitHub.com
-date: Mon, 05 Jun 2023 03:16:55 GMT
+date: Fri, 21 Jul 2023 04:35:37 GMT
 content-type: application/json; charset=utf-8
 cache-control: public, max-age=60, s-maxage=60
 vary: Accept, Accept-Encoding, Accept, X-Requested-With
-etag: W/"4160f54e0fb854b4356cf2b360be10a80ebe3ade8fdc386a0cb989f35f3c5aaa"
+etag: W/"945e6480c7b985c1e59da1d1fd0b87a14d8eb7d86b9374df79bf6caa3e74e0cd"
 x-github-media-type: github.v3; format=json
 x-github-api-version-selected: 2022-11-28
 access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
@@ -21,22 +23,24 @@ referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
 content-security-policy: default-src 'none'
 content-encoding: gzip
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
-x-ratelimit-reset: 1685938191
+x-ratelimit-remaining: 59
+x-ratelimit-reset: 1689917737
 x-ratelimit-resource: core
-x-ratelimit-used: 4
+x-ratelimit-used: 1
 accept-ranges: bytes
-content-length: 281
-x-github-request-id: D43E:3EB0:13AE6C4:14D232C:647D53A7
+content-length: 377
+x-github-request-id: 2F76:57BE:40A63C:438471:64BA0B19
 connection: close
 ###
+# Get Workflows by ID #59229996
+
 GET https://api.github.com/repos/longht021189/bot/actions/workflows/59229996
 Accept: application/vnd.github+json
 X-GitHub-Api-Version: 2022-11-28
 
 HTTP/1.1 200  - OK
 server: GitHub.com
-date: Mon, 05 Jun 2023 03:17:56 GMT
+date: Fri, 21 Jul 2023 04:37:40 GMT
 content-type: application/json; charset=utf-8
 cache-control: public, max-age=60, s-maxage=60
 vary: Accept, Accept-Encoding, Accept, X-Requested-With
@@ -53,13 +57,13 @@ referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
 content-security-policy: default-src 'none'
 content-encoding: gzip
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
-x-ratelimit-reset: 1685938190
+x-ratelimit-remaining: 58
+x-ratelimit-reset: 1689917737
 x-ratelimit-resource: core
-x-ratelimit-used: 5
+x-ratelimit-used: 2
 accept-ranges: bytes
 content-length: 261
-x-github-request-id: D447:5FC9:15AAA3C:16D90BA:647D53E4
+x-github-request-id: BA9D:11D0:415C09:443CB5:64BA0B94
 connection: close
 ###
 PUT https://api.github.com/repos/longht021189/bot/actions/workflows/59229996/disable
@@ -120,23 +124,26 @@ content-encoding: gzip
 x-github-request-id: D464:239B:704E6A:76EDB4:647D5485
 connection: close
 ###
+# Create Access Token Here https://github.com/settings/tokens
+# Run Action in `main` Branch
+
 POST https://api.github.com/repos/longht021189/bot/actions/workflows/59229996/dispatches
 Accept: application/vnd.github+json
+Authorization: Bearer <Token>
 X-GitHub-Api-Version: 2022-11-28
 
-{"ref":"topic-branch","inputs":{"name":"Mona the Octocat","home":"San Francisco, CA"}}
+{"ref":"main","inputs":{"name":"Mona the Octocat"}}
 
-HTTP/1.1 403  - Forbidden
+HTTP/1.1 204  - No Content
 server: GitHub.com
-date: Mon, 05 Jun 2023 03:20:09 GMT
-content-type: application/json; charset=utf-8
-transfer-encoding: chunked
+date: Fri, 21 Jul 2023 04:48:14 GMT
+github-authentication-token-expiration: 2023-08-20 11:46:26 +0700
 x-github-media-type: github.v3; format=json
 x-github-api-version-selected: 2022-11-28
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
-x-ratelimit-reset: 1685938715
-x-ratelimit-used: 2
+x-ratelimit-limit: 5000
+x-ratelimit-remaining: 4997
+x-ratelimit-reset: 1689918400
+x-ratelimit-used: 3
 x-ratelimit-resource: core
 access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
 access-control-allow-origin: *
@@ -147,22 +154,17 @@ x-xss-protection: 0
 referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
 content-security-policy: default-src 'none'
 vary: Accept-Encoding, Accept, X-Requested-With
-content-encoding: gzip
-x-github-request-id: D45E:7985:1EAF0D7:20513B6:647D5469
+x-github-request-id: 9E85:20EF:443AC3:4728A3:64BA0E0E
 connection: close
 ###
 GET https://api.github.com/repos/longht021189/bot/actions/workflows/59229996/timing
 Accept: application/vnd.github+json
 X-GitHub-Api-Version: 2022-11-28
 
-HTTP/1.1 200  - OK
+HTTP/1.1 404  - Not Found
 server: GitHub.com
-date: Mon, 05 Jun 2023 03:21:12 GMT
+date: Fri, 21 Jul 2023 04:51:09 GMT
 content-type: application/json; charset=utf-8
-content-length: 15
-cache-control: public, max-age=60, s-maxage=60
-vary: Accept, Accept-Encoding, Accept, X-Requested-With
-etag: "84bc8bf82948ceff7cefe12db949da557091284ba996d17e627456324356f587"
 x-github-media-type: github.v3; format=json
 x-github-api-version-selected: 2022-11-28
 access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
@@ -173,11 +175,13 @@ x-content-type-options: nosniff
 x-xss-protection: 0
 referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
 content-security-policy: default-src 'none'
+vary: Accept-Encoding, Accept, X-Requested-With
+content-encoding: gzip
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
-x-ratelimit-reset: 1685938190
+x-ratelimit-remaining: 56
+x-ratelimit-reset: 1689917738
 x-ratelimit-resource: core
-x-ratelimit-used: 6
-accept-ranges: bytes
-x-github-request-id: D46B:5FC9:15B1B5B:16E05D9:647D54A8
+x-ratelimit-used: 4
+content-length: 116
+x-github-request-id: 13EC:20EF:449E5E:478FE2:64BA0EBD
 connection: close

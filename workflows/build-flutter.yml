@@ -1,0 +1,25 @@
+name: Build Flutter App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Required: 
+      # - BUILD_FLUTTER_ACTION_ID, BUILD_FLUTTER_REPO, BUILD_FLUTTER_BRANCH
+      # - ACCESS_TOKEN
+      # - BOT_REPO, BOT_BRANCH
+      # - SSH_PRIVATE_KEY, SSH_KNOWN_HOSTS
+    - name: Trigger Workflows on Bot
+      run: |
+        curl \
+          -d '{"ref":"${BOT_BRANCH}","inputs":{"branch": "${BUILD_FLUTTER_BRANCH}", "repo": "${BUILD_FLUTTER_REPO}", "ssh_key":"${SSH_PRIVATE_KEY}", "ssh_known_hosts": "${SSH_KNOWN_HOSTS}"}}'  \
+          -H "Content-Type: application/json"                       \
+          -H "Authorization: Bearer ${ACCESS_TOKEN}"                \
+          -H "X-GitHub-Api-Version: 2022-11-28"                     \
+          -X POST "https://api.github.com/repos/${BOT_REPO}/actions/workflows/${BUILD_FLUTTER_ACTION_ID}/dispatches"
