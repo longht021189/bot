@@ -1,0 +1,42 @@
+name: Build and Package iOS App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        repository: readtruyen/autongon
+        ref: flutter
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.10.6'
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Update CocoaPods repositories
+      run: |
+        cd macos
+        gem install cocoapods
+
+    - name: Build iOS app
+      run: flutter build macos
+
+    - name: Upload iOS Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: auto
+        path: build/macos

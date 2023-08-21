@@ -21,13 +21,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Hide Inputs
-      run: |
-        echo "::add-mask::${{ github.event.inputs.ssh_key }}"
-        echo "::add-mask::${{ github.event.inputs.ssh_known_hosts }}"
-        echo "::add-mask::${{ github.event.inputs.repo }}"
-        echo "::add-mask::${{ github.event.inputs.branch }}"
-
     - name: Checkout code
       uses: longht021189/checkout@d44347d65f3df181e8e7e6f567e958a67c47860d
       with:
