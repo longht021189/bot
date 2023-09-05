@@ -35,8 +35,10 @@ jobs:
     - name: Build iOS app
       run: flutter build macos
 
+    - name: Zip iOS app
+      run: tar -zcvf app.tar.gz build/macos/Build/Products/Release/Build/Products/Release/auto.app
+
     - name: Upload iOS Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: auto
-        path: build/macos
+        path: app.tar.gz
