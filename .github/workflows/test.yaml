@@ -31,6 +31,7 @@ jobs:
       run: |
         cd macos
         gem install cocoapods
+        pod install
 
     - name: Build iOS app
       run: flutter build macos
