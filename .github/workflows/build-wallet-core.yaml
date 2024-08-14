@@ -29,4 +29,10 @@ jobs:
           WALLET_CORE_DIR: ${{ github.workspace }}/wallet-core
           BUILD_DIR: ${{ github.workspace }}/build
           INSTALL_DIR: ${{ github.workspace }}/install
+          OUT_DIR: ${{ github.workspace }}/out/wallet-core
         run: bash ${{ github.workspace }}/bot/build/wallet-core/build.sh
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          path: ${{ github.workspace }}/out/wallet-core
+          name: wallet-core-osx
