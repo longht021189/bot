@@ -1,0 +1,99 @@
+# name: Manual Trigger
+#
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       name:
+#         description: "Who to greet"
+#         default: "World"
+#
+# jobs:
+#   hello:
+#     runs-on: ubuntu-latest
+#
+#     steps:
+#       - name: Hello Step
+#         run: echo "Hello ${{ github.event.inputs.name }}"
+
+
+    # steps:
+    # - name: Checkout code
+    #   uses: actions/checkout@v2
+    #   with:
+    #     repository: readtruyen/autongon
+    #     ref: flutter
+    #     ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+    # - name: Setup Flutter
+    #   uses: subosito/flutter-action@v2
+    #   with:
+    #     channel: 'beta'
+    # - name: Install dependencies
+    #   run: flutter pub get
+    # - name: Update CocoaPods repositories
+    #   run: |
+    #     cd macos
+    #     gem install cocoapods
+    #     pod install
+    # - name: Build iOS app
+    #   run: flutter build macos
+    # - name: Zip iOS app
+    #   run: tar -zcvf app.tar.gz build/macos/Build/Products/Release/auto.app
+    # - name: Upload iOS Artifact
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     path: app.tar.gz
+
+
+# name: Build Flutter
+#
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       branch:
+#         description: "branch of repo"
+#         required: true 
+#       repo:
+#         description: "repo path (not include domain)"
+#         required: true 
+#       ssh_key:
+#         description: "ssh key to clone repo"
+#         required: true 
+#       ssh_known_hosts:
+#         description: "ssh known hosts"
+#         required: true 
+#
+# jobs:
+#   hello:
+#     runs-on: ubuntu-latest
+#
+#     steps:
+#     - name: Checkout code
+#       uses: longht021189/checkout@d44347d65f3df181e8e7e6f567e958a67c47860d
+#       with:
+#         repository: ${{ github.event.inputs.repo }}
+#         ref: ${{ github.event.inputs.branch }}
+#         ssh-key-base64: ${{ github.event.inputs.ssh_key }}
+#         ssh-known-hosts-base64: ${{ github.event.inputs.ssh_known_hosts }}
+#
+#     - name: Setup Flutter
+#       uses: subosito/flutter-action@v2
+#       with:
+#         flutter-version: '3.10.6'
+#
+#     - name: Install dependencies
+#       run: flutter pub get
+#
+#     # - name: Update CocoaPods repositories
+#     #   run: |
+#     #     cd ios
+#     #     gem install cocoapods
+#
+#     - name: Build Android App
+#       run: flutter build appbundle
+#
+#     # - name: Upload iOS Artifact
+#     #   uses: actions/upload-artifact@v2
+#     #   with:
+#     #     name: ios-app
+#     #     path: build/ios

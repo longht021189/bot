@@ -1,0 +1,25 @@
+name: Build-Wallet-Core
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: 'Note'
+        required: false
+        type: string
+
+jobs:
+  build-wallet-core:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: 'longht021189/wallet-core'
+          ref: 'custom'
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      - name: Install dependencies
+        run: |
+          brew install cmake boost ruby ninja autoconf automake libtool xcodegen clang-format ccache cocoapods
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
