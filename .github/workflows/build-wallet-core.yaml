@@ -31,4 +31,16 @@ jobs:
         run: ./tools/install-dependencies
       - name: Install rust dependencies
         run: ./tools/install-rust-dependencies
+      - name: Generate files for Native
+        run: ./tools/generate-files native
+      - name: Build
+        env:
+          SCRIPT_DIR: ${{ github.workspace }}
+        run: |
+          cmake -H. \
+            -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ \
+            -G Ninja -DCMAKE_MAKE_PROGRAM=ninja -DCMAKE_INSTALL_PREFIX=$SCRIPT_DIR/build/install \
+            -B$SCRIPT_DIR/build/buildDir
 
+          cmake --build $SCRIPT_DIR/build/buildDir --config Release --target walletconsole -j 6
+          cmake --install $SCRIPT_DIR/build/buildDir
