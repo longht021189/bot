@@ -29,4 +29,4 @@ jobs:
           WALLET_CORE_DIR: ${{ github.workspace }}/wallet-core
           BUILD_DIR: ${{ github.workspace }}/build
           INSTALL_DIR: ${{ github.workspace }}/install
-        run: ${{ github.workspace }}/bot/build/wallet-core/build.sh
+        run: bash ${{ github.workspace }}/bot/build/wallet-core/build.sh
