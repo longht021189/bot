@@ -22,4 +22,6 @@ jobs:
       - name: Install dependencies
         run: |
           brew install cmake boost ruby ninja autoconf automake libtool xcodegen clang-format ccache cocoapods
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      - name: Install Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
