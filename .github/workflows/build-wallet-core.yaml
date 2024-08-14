@@ -12,35 +12,21 @@ jobs:
   build-wallet-core:
     runs-on: macos-latest
     steps:
-      - name: Checkout code
+      - name: Checkout wallet-core
         uses: actions/checkout@v4
         with:
           repository: 'longht021189/wallet-core'
           ref: 'custom'
+          path: 'wallet-core'
+      - name: Checkout bot
+        uses: actions/checkout@v4
+        with:
+          path: 'bot'
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      - name: Install tools
-        run: brew install cmake boost ruby ninja autoconf automake libtool xcodegen clang-format ccache cocoapods
-      - name: Install Rust
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o rustup.sh
-          sh rustup.sh -y
-      - name: Install system dependencies
-        run: ./tools/install-sys-dependencies-mac
-      - name: Install dependencies
-        run: ./tools/install-dependencies
-      - name: Install rust dependencies
-        run: ./tools/install-rust-dependencies
-      - name: Generate files for Native
-        run: ./tools/generate-files native
-      - name: Build
+      - name: Build wallet-core
         env:
-          SCRIPT_DIR: ${{ github.workspace }}
-        run: |
-          cmake -H. \
-            -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ \
-            -G Ninja -DCMAKE_MAKE_PROGRAM=ninja -DCMAKE_INSTALL_PREFIX=$SCRIPT_DIR/build/install \
-            -B$SCRIPT_DIR/build/buildDir
-
-          cmake --build $SCRIPT_DIR/build/buildDir --config Release --target walletconsole -j 6
-          cmake --install $SCRIPT_DIR/build/buildDir
+          WALLET_CORE_DIR: ${{ github.workspace }}/wallet-core
+          BUILD_DIR: ${{ github.workspace }}/build
+          INSTALL_DIR: ${{ github.workspace }}/install
+        run: ${{ github.workspace }}/bot/build/wallet-core/build.sh
