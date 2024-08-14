@@ -19,10 +19,16 @@ jobs:
           ref: 'custom'
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      - name: Install dependencies
-        run: |
-          brew install cmake boost ruby ninja autoconf automake libtool xcodegen clang-format ccache cocoapods
+      - name: Install tools
+        run: brew install cmake boost ruby ninja autoconf automake libtool xcodegen clang-format ccache cocoapods
       - name: Install Rust
         run: |
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o rustup.sh
           sh rustup.sh -y
+      - name: Install system dependencies
+        run: ./tools/install-sys-dependencies-mac
+      - name: Install dependencies
+        run: ./tools/install-dependencies
+      - name: Install rust dependencies
+        run: ./tools/install-rust-dependencies
+
