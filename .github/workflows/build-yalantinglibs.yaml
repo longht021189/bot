@@ -1,0 +1,44 @@
+name: Build-yaLanTingLibs
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: 'Note'
+        required: false
+        type: string
+
+jobs:
+  build-yalantinglibs:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout yalantinglibs
+        uses: actions/checkout@v4
+        with:
+          repository: 'alibaba/yalantinglibs'
+          ref: '0.3.6'
+          path: 'yalantinglibs'
+      - name: Checkout bot
+        uses: actions/checkout@v4
+        with:
+          path: 'bot'
+      - name: Build yalantinglibs
+        env:
+          YALANTINGLIBS_DIR: ${{ github.workspace }}/yalantinglibs
+          BUILD_DIR: ${{ github.workspace }}/build
+          INSTALL_DIR: ${{ github.workspace }}/install
+          OUT_DIR: ${{ github.workspace }}/out/yalantinglibs
+        run: bash ${{ github.workspace }}/bot/scripts/yalantinglibs/build.sh
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        id: upload-artifact
+        with:
+          path: ${{ github.workspace }}/out/yalantinglibs
+          name: yalantinglibs-osx
+      - name: Notify
+        env:
+          TELEGRAM_BOT_API_TOKEN: ${{ secrets.TELEGRAM_BOT_API_TOKEN }}
+          TELEGRAM_BOT_ME_CHAT_ID: ${{ secrets.TELEGRAM_BOT_ME_CHAT_ID }}
+          OUTPUT_LINK: ${{ steps.upload-artifact.outputs.artifact-url }}
+          OUTPUT_NAME: yalantinglibs-osx
+        run: bash ${{ github.workspace }}/bot/scripts/telegram/notify.sh
