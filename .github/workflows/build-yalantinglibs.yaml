@@ -40,5 +40,5 @@ jobs:
           TELEGRAM_BOT_API_TOKEN: ${{ secrets.TELEGRAM_BOT_API_TOKEN }}
           TELEGRAM_BOT_ME_CHAT_ID: ${{ secrets.TELEGRAM_BOT_ME_CHAT_ID }}
           OUTPUT_LINK: ${{ steps.upload-artifact.outputs.artifact-url }}
-          OUTPUT_NAME: yalantinglibs-osx
+          OUTPUT_NAME: yalantinglibs\\-osx
         run: bash ${{ github.workspace }}/bot/scripts/telegram/notify.sh
