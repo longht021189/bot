@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+brew íntall cmake ninja
+
 pushd $YALANTINGLIBS_DIR
   cmake -H. \
     -DBUILD_EXAMPLES=OFF -DBUILD_BENCHMARK=OFF -DBUILD_UNIT_TESTS=OFF \
