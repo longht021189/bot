@@ -1,8 +1,8 @@
 set -e
 
 MESSAGE="*Build Success*
-\\- Name: $OUTPUT_NAME
-\\- [Download Here]($OUTPUT_LINK)"
+\\\\- Name: $OUTPUT_NAME
+\\\\- [Download Here]($OUTPUT_LINK)"
 
 curl -L https://api.telegram.org/bot$TELEGRAM_BOT_API_TOKEN/sendMessage \
   -X POST \
