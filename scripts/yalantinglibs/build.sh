@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-brew íntall cmake ninja
+brew install cmake ninja
 
 pushd $YALANTINGLIBS_DIR
   cmake -H. \
