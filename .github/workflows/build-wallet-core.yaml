@@ -30,7 +30,7 @@ jobs:
           BUILD_DIR: ${{ github.workspace }}/build
           INSTALL_DIR: ${{ github.workspace }}/install
           OUT_DIR: ${{ github.workspace }}/out/wallet-core
-        run: bash ${{ github.workspace }}/bot/build/wallet-core/build.sh
+        run: bash ${{ github.workspace }}/bot/scripts/wallet-core/build.sh
       - name: Upload
         uses: actions/upload-artifact@v4
         id: upload-artifact
@@ -38,8 +38,9 @@ jobs:
           path: ${{ github.workspace }}/out/wallet-core
           name: wallet-core-osx
       - name: Notify
-        run: |
-          curl -L https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_API_TOKEN }}/sendMessage \
-            -X POST \
-            -H 'Content-Type: application/json' \
-            --data-raw '{"chat_id":"${{ secrets.TELEGRAM_BOT_ME_CHAT_ID }}","text":"Build wallet-core-osx success: ${{ steps.upload-artifact.outputs.artifact-url }}"}'
+        env:
+          TELEGRAM_BOT_API_TOKEN: ${{ secrets.TELEGRAM_BOT_API_TOKEN }}
+          TELEGRAM_BOT_ME_CHAT_ID: ${{ secrets.TELEGRAM_BOT_ME_CHAT_ID }}
+          OUTPUT_LINK: ${{ steps.upload-artifact.outputs.artifact-url }}
+          OUTPUT_NAME: wallet-core-osx
+        run: bash ${{ github.workspace }}/bot/scripts/telegram/notify.sh
