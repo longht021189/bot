@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-wallet-core:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
       - name: Checkout wallet-core
         uses: actions/checkout@v4
@@ -42,5 +42,5 @@ jobs:
           TELEGRAM_BOT_API_TOKEN: ${{ secrets.TELEGRAM_BOT_API_TOKEN }}
           TELEGRAM_BOT_ME_CHAT_ID: ${{ secrets.TELEGRAM_BOT_ME_CHAT_ID }}
           OUTPUT_LINK: ${{ steps.upload-artifact.outputs.artifact-url }}
-          OUTPUT_NAME: wallet\\-core\\-osx
+          OUTPUT_NAME: walletcoreosx
         run: bash ${{ github.workspace }}/bot/scripts/telegram/notify.sh
