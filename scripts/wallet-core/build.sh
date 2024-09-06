@@ -14,15 +14,15 @@ if [ "$FULL_WORKSPACE" == "true" ]; then
   WALLET_CORE_DIR="$WALLET_CORE_SCRIPTS_DIR/../../../../../wallet-core"
 else
   WALLET_CORE_DIR="$WALLET_CORE_SCRIPTS_DIR/source"
-
   rm -rf "$WALLET_CORE_DIR"
-  rm -rf "$WALLET_CORE_DIR/../wallet-core-out"
-
   git clone -b custom https://github.com/longht021189/wallet-core.git "$WALLET_CORE_DIR"
 fi
 
+rm -rf "$WALLET_CORE_DIR/../wallet-core-out"
+
 BUILD_DIR="$WALLET_CORE_DIR/../wallet-core-out/build"
 INSTALL_DIR="$WALLET_CORE_DIR/../wallet-core-out/install"
+OUT_DIR="$WALLET_CORE_SCRIPTS_DIR/../../../../packages/core/pkg-cxx/prebuilt/wallet-core"
 
 pushd "$WALLET_CORE_DIR"
   ./tools/install-sys-dependencies-mac
@@ -39,9 +39,8 @@ pushd "$WALLET_CORE_DIR"
   cmake --install $BUILD_DIR > "$WALLET_CORE_DIR/../wallet-core-out/install.log"
 popd
 
-# rm -rf $OUT_DIR
-# mkdir -p $OUT_DIR
+rm -rf $OUT_DIR
+mkdir -p $OUT_DIR
 
-# mv $INSTALL_DIR/lib $OUT_DIR/lib
-# mv $INSTALL_DIR/include $OUT_DIR/include
-# mv $WALLET_CORE_DIR/rust/target/release/libwallet_core_rs.a $OUT_DIR/lib/libwallet_core_rs.a
+mv $INSTALL_DIR/lib $OUT_DIR/lib
+mv $INSTALL_DIR/include $OUT_DIR/include
