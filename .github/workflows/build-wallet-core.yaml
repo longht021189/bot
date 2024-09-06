@@ -37,6 +37,8 @@ jobs:
         with:
           path: ${{ github.workspace }}/out/wallet-core
           name: wallet-core-osx
+          if-no-files-found: error
+          include-hidden-files: true
       - name: Notify
         env:
           TELEGRAM_BOT_API_TOKEN: ${{ secrets.TELEGRAM_BOT_API_TOKEN }}
