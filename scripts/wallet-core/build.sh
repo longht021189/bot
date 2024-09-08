@@ -44,3 +44,4 @@ mkdir -p $OUT_DIR
 
 mv $INSTALL_DIR/lib $OUT_DIR/lib
 mv $INSTALL_DIR/include $OUT_DIR/include
+mv $WALLET_CORE_DIR/rust/target/release/libwallet_core_rs.a $OUT_DIR/lib/libwallet_core_rs.a
