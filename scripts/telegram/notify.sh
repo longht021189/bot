@@ -11,7 +11,7 @@ curl -L https://api.telegram.org/bot$TELEGRAM_BOT_API_TOKEN/sendMessage \
   -F caption="$MESSAGE" \
   -F document=@$OUTPUT_LINK
 
-  # -F text="$MESSAGE"
+# -F text="$MESSAGE"
 
 # Docs:
 # - https://core.telegram.org/bots/api#sendmessage
