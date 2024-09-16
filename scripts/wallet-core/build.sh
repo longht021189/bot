@@ -22,7 +22,7 @@ rm -rf "$WALLET_CORE_DIR/../wallet-core-out"
 
 BUILD_DIR="$WALLET_CORE_DIR/../wallet-core-out/build"
 INSTALL_DIR="$WALLET_CORE_DIR/../wallet-core-out/install"
-OUT_DIR="$WALLET_CORE_SCRIPTS_DIR/../../../../packages/core/pkg-cxx/prebuilt/wallet-core"
+OUT_DIR="$WALLET_CORE_SCRIPTS_DIR/../../../../packages/core/app-core/prebuilt/wallet-core"
 
 pushd "$WALLET_CORE_DIR"
   ./tools/install-sys-dependencies-mac
