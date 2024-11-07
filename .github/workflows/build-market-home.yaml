@@ -1,0 +1,29 @@
+name: Build-Market-Home
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-market-home:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: longht021189/checkout@d44347d65f3df181e8e7e6f567e958a67c47860d
+      with:
+        repository: ${{ secrets.MARKET_HOME_REPO }}
+        ref: ${{ secrets.MARKET_HOME_BRANCH }}
+        ssh-key-base64: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-known-hosts-base64: ${{ secrets.SSH_KNOWN_HOSTS }}
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.10.6'
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build Android App
+      run: flutter build appbundle
