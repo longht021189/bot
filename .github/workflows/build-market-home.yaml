@@ -30,7 +30,7 @@ jobs:
 
     - name: Send Build
       run: |
-        curl -F chat_id=${{ secrets.TELEGRAM_BOT_API_TOKEN }} \
+        curl -F chat_id=${{ secrets.TELEGRAM_BOT_ME_CHAT_ID }} \
              -F document=@build/app/outputs/bundle/release/app-release.aab \
              https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_API_TOKEN }}/sendDocument
 
@@ -58,6 +58,6 @@ jobs:
 
     - name: Send Build
       run: |
-        curl -F chat_id=${{ secrets.TELEGRAM_BOT_API_TOKEN }} \
+        curl -F chat_id=${{ secrets.TELEGRAM_BOT_ME_CHAT_ID }} \
              -F document=@build/app/outputs/bundle/release/app-release.apk \
              https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_API_TOKEN }}/sendDocument
